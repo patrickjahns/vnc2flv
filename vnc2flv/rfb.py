@@ -417,7 +417,7 @@ class RFBProxy(object):
         bits = ''.join([ conv1(i) for i in xrange(0, len(image), 4) ])
         self.sink.update_cursor_image(width, height, bits)
         self.sink.update_cursor_pos(x, y)
-        return
+        return self.framerect()
 
     def xcursor(self, width, height):
         if width == 0 or height == 0:
@@ -453,7 +453,7 @@ class RFBProxy(object):
         bits = ''.join([ conv1(i) for i in xrange(len(shape)) ])
         self.sink.update_cursor_image(width, height, bits)
         self.sink.update_cursor_pos(x, y)
-        return
+        return self.framerect()
 
     def cursorpos(self, x, y):
         if self.debug:
