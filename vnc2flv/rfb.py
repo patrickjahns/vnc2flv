@@ -408,7 +408,7 @@ class RFBProxy(object):
         if self.debug:
             print >>sys.stderr, 'RichCursor: %dx%d at %d,%d' % (width,height,x,y)
         image = self.sink.convert_pixels(image)
-        mask = str2bitmap(mask, w, h, rowbytes)
+        mask = str2bitmap(mask, width, height, rowbytes)
         def conv1(i):
             if mask[i/4] == '\x01':
                 return '\xff'+image[i]+image[i+1]+image[i+2]
